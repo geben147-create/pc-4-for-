@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Video Prompt (VP01-VP14)",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "video_id", "scene_id", "image_id", "generation_units", "timecode", "script_line",
+      "semantic_reason", "start_frame_image", "state_in", "state_out",
+      "subject_motion", "camera_motion", "motion_path", "speed_curve",
+      "screen_direction", "foreground_element", "transition_action", "lighting_continuity",
+      "energy", "energy_prev", "energy_next", "next_scene_id",
+      "clip_seconds", "fps", "motion_strength", "prompt_en", "negative_prompt", "vp_selfcheck"
+    ],
+    "properties": {
+      "video_id":  { "type": "string", "pattern": "^VID_SC_[0-9]{2,3}(_[A-C])?$" },
+      "scene_id":  { "type": "string", "pattern": "^SC_[0-9]{2,3}$" },
+      "image_id":  { "type": "string", "pattern": "^IMG_SC_[0-9]{2,3}$" },
+
+      "generation_units": {
+        "type": "object", "description": "VP12",
+        "required": ["index", "total"],
+        "properties": { "index": { "enum": ["A", "B", "C"] }, "total": { "type": "integer", "minimum": 1, "maximum": 3 } }
+      },
+      "timecode":        { "type": "string" },
+      "script_line":     { "type": "string" },
+      "semantic_reason": { "type": "string", "minLength": 20, "description": "VP11 - 대본 단어와의 연결" },
+
+      "start_frame_image": { "type": "string", "pattern": "^IMG_SC_[0-9]{2,3}$" },
+      "state_in":          { "type": "string", "minLength": 30, "description": "VP03 - 승인된 스틸 묘사" },
+      "state_out":         { "type": "string", "minLength": 30, "description": "VP04 - 다음 클립 state_in과 일치" },
+
+      "subject_motion": { "type": "string", "minLength": 10, "description": "VP02 - 동작 1개" },
+      "camera_motion":  { "enum": ["push-in", "pull-out", "orbit", "crane-down", "crane-up", "dolly-lateral", "descend-through", "locked-off"], "description": "VP01 - 단 1개" },
+      "motion_path":    { "type": "string", "minLength": 10, "description": "VP05" },
+
+      "speed_curve": {
+        "type": "object", "description": "VP06 - hero는 4구간 전부",
+        "minProperties": 2,
+        "properties": {
+          "approach":   { "type": "string" },
+          "accelerate": { "type": "string" },
+          "peak":       { "type": "string" },
+          "decelerate": { "type": "string" }
+        }
+      },
+
+      "screen_direction":      { "type": "string", "description": "VP07" },
+      "direction_flip_reason": { "type": ["string", "null"] },
+      "foreground_element":    { "type": ["string", "null"], "description": "VP08 - 속도감 클립 필수" },
+      "transition_action":     { "type": ["string", "null"], "description": "VP09" },
+      "lighting_continuity":   { "type": "string", "minLength": 20, "description": "VP13" },
+
+      "energy":      { "type": "integer", "minimum": 1, "maximum": 5, "description": "VP14" },
+      "energy_prev": { "type": ["integer", "null"], "minimum": 1, "maximum": 5 },
+      "energy_next": { "type": ["integer", "null"], "minimum": 1, "maximum": 5 },
+
+      "next_scene_id":   { "type": ["string", "null"], "description": "VP10" },
+      "clip_seconds":    { "type": "number", "minimum": 2, "maximum": 8 },
+      "fps":             { "enum": [24, 25, 30] },
+      "motion_strength": { "enum": ["low", "medium", "high"] },
+
+      "prompt_en":       { "type": "string", "minLength": 120 },
+      "negative_prompt": { "type": "string", "minLength": 50 },
+
+      "vp_selfcheck": {
+        "type": "array", "minItems": 14,
+        "items": {
+          "type": "object", "required": ["check_id", "status", "evidence"],
+          "properties": {
+            "check_id": { "type": "string", "pattern": "^VP(0[1-9]|1[0-4])$" },
+            "status":   { "enum": ["PASS-A", "PASS-B", "PARTIAL", "FAIL"] },
+            "evidence": { "type": "string", "minLength": 10 },
+            "fix":      { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

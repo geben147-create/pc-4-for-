@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Image Prompt (IP01-IP13)",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "image_id", "scene_id", "timecode", "script_line", "visual_purpose", "shot_role",
+      "needs_revision", "location", "subject", "subject_action", "camera_position",
+      "shot_scale", "lens_mm", "depth_plan", "palette", "lighting", "environment",
+      "continuity_ids", "next_transition_object", "screen_direction",
+      "prompt_en", "negative_prompt", "tech", "ip_selfcheck"
+    ],
+    "properties": {
+      "image_id":   { "type": "string", "pattern": "^IMG_SC_[0-9]{2,3}$" },
+      "scene_id":   { "type": "string", "pattern": "^SC_[0-9]{2,3}$" },
+      "timecode":   { "type": "string", "pattern": "^[0-9]+:[0-5][0-9]-[0-9]+:[0-5][0-9]$" },
+      "script_line":     { "type": "string", "minLength": 1 },
+      "visual_purpose":  { "type": "string", "minLength": 10, "description": "IP13" },
+      "shot_role":       { "enum": ["hero", "explain", "xray", "insert", "human"] },
+      "needs_revision":  { "type": "boolean" },
+
+      "location":        { "type": "string", "minLength": 25, "description": "IP01 - 장소+시간대+환경상태" },
+      "subject":         { "type": "string", "minLength": 5,  "description": "IP02 - 주체 1개" },
+      "subject_action":  { "type": "string", "minLength": 5,  "description": "IP03" },
+      "camera_position": { "enum": ["top-down", "low-angle", "eye-level", "over-the-shoulder", "dutch", "frontal-symmetrical"], "description": "IP04" },
+      "shot_scale":      { "enum": ["macro", "close", "medium", "medium-wide", "wide", "aerial"], "description": "IP05" },
+      "lens_mm":         { "type": "string", "pattern": "^[0-9]{2,3}mm$", "description": "IP06" },
+
+      "depth_plan": {
+        "type": "object", "description": "IP07 - hero는 3층 필수",
+        "required": ["fg", "mg", "bg"],
+        "properties": { "fg": { "type": "string" }, "mg": { "type": "string" }, "bg": { "type": "string" } }
+      },
+      "palette": {
+        "type": "object", "description": "IP08 - PROJECT_BIBLE COLOR ARC 인용",
+        "required": ["id", "hex"],
+        "properties": {
+          "id":  { "enum": ["PAL_LURE", "PAL_DISSECT", "PAL_STRUCTURE", "PAL_REALITY", "PAL_RESOLVE"] },
+          "hex": { "type": "array", "items": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" }, "minItems": 2 }
+        }
+      },
+      "lighting":    { "type": "string", "minLength": 30, "description": "IP09 - 광원+방향+색온도 3요소" },
+      "environment": { "type": "string", "minLength": 15, "description": "IP10" },
+
+      "continuity_ids": {
+        "type": "array", "description": "IP12 - PROJECT_BIBLE ID만 허용",
+        "items": { "type": "string", "pattern": "^(ANC|CHR)_[A-Z_]+$" }
+      },
+      "next_transition_object": {
+        "description": "IP11 - transition_out 있으면 null 금지",
+        "oneOf": [
+          { "type": "null" },
+          {
+            "type": "object", "required": ["object", "screen_location"],
+            "properties": { "object": { "type": "string" }, "screen_location": { "type": "string" } }
+          }
+        ]
+      },
+      "screen_direction": { "enum": ["left-to-right", "right-to-left", "upward", "downward", "into-frame", "out-of-frame", "static"] },
+
+      "prompt_en":       { "type": "string", "minLength": 200 },
+      "negative_prompt": { "type": "string", "minLength": 50 },
+
+      "tech": {
+        "type": "object",
+        "required": ["aspect_ratio", "resolution", "seed_policy", "variants"],
+        "properties": {
+          "aspect_ratio":    { "const": "16:9" },
+          "resolution":      { "type": "string" },
+          "seed_policy":     { "enum": ["fixed_per_anchor", "fixed_per_scene", "free"] },
+          "reference_image": { "type": ["string", "null"] },
+          "variants":        { "type": "integer", "minimum": 1, "maximum": 6 }
+        }
+      },
+
+      "ip_selfcheck": {
+        "type": "array", "minItems": 13,
+        "items": {
+          "type": "object", "required": ["check_id", "status", "evidence"],
+          "properties": {
+            "check_id": { "type": "string", "pattern": "^IP(0[1-9]|1[0-3])$" },
+            "status":   { "enum": ["PASS-A", "PASS-B", "PARTIAL", "FAIL"] },
+            "evidence": { "type": "string", "minLength": 10 },
+            "fix":      { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}
