@@ -15,22 +15,26 @@
 | 5 | 이 돈의 출처 | https://pollo.ai/v/cmu8n3el44wvkgpndcu56rz58 |
 | 18-en | COVERED CALL (영문 대조군) | https://pollo.ai/v/cmu8mf4b84trhnsq689m3whs2 |
 
-**8/24 완료**
+| 6 | 콜옵션 매도 | https://pollo.ai/v/cmu8n7yd64xb1vvczdkr3q6ci |
+| 7 | 옵션 프리미엄 | https://pollo.ai/v/cmu8n83go4vx6zd4lrl6zyy2u |
+| 8 | 공짜 점심은 없다 | https://pollo.ai/v/cmu8n88ah4x9kgsppph0uzuqi |
+| 9 | 횡보장 | https://pollo.ai/v/cmu8n8ctj4w7512w9uxzlh26b |
 
-## 배치 2 — 생성 중
+**12/24 완료**
+
+## 배치 3 — 생성 중
 
 | # | 핵심 단어 | taskId |
 |---|---|---|
-| 6 | 콜옵션 매도 | `cmu8n7yd14xb0vvcz5jpuru6v` |
-| 7 | 옵션 프리미엄 | `cmu8n83gh4vx5zd4l1trdte6o` |
-| 8 | 공짜 점심은 없다 | `cmu8n88aa4x9jgsppu47xlab5` |
-| 9 | 횡보장 | `cmu8n8cte4w7412w9dycin8xr` |
+| 11 | 분배율과 수익률 | `cmu8ndesi4x24c70ynywhttsh` |
+| 12 | 총수익률 | `cmu8ndixk4wmjg8eqdilaiet1` |
+| 13 | 가격 변화까지 | `cmu8ndnni4wxr7yygj7jonw2e` |
+| 14 | 얼마나 파느냐 | `cmu8ndswg4x1aw8iq2zbowbim` |
 
 ## 남은 배치
 
 | 배치 | 컷 |
 |---|---|
-| 3 | 11 분배율과 수익률 · 12 총수익률 · 13 가격 변화까지 · 14 얼마나 파느냐 |
 | 4 | 15 전략이 다르다 · 16 무엇을 포기하나 · 17 기초자산 · 19 보는 순서 |
 | 5 | 20 고정 이자가 아니다 · 21 원금 감소 가능 · 22 목적이 다르다 · 23 세 가지 숫자 |
 | 6 | 24 내 목적에 맞는 ETF |
