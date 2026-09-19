@@ -20,22 +20,26 @@
 | 8 | 공짜 점심은 없다 | https://pollo.ai/v/cmu8n88ah4x9kgsppph0uzuqi |
 | 9 | 횡보장 | https://pollo.ai/v/cmu8n8ctj4w7512w9uxzlh26b |
 
-**12/24 완료**
+| 11 | 분배율과 수익률 | https://pollo.ai/v/cmu8ndeso4x25c70yqslph12v |
+| 12 | 총수익률 | https://pollo.ai/v/cmu8ndixq4wmkg8eqwm4asdnc |
+| 13 | 가격 변화까지 | https://pollo.ai/v/cmu8ndnno4wxt7yygpalkp4x2 |
+| 14 | 얼마나 파느냐 | https://pollo.ai/v/cmu8ndswp4x1bw8iq1pfam7cu |
 
-## 배치 3 — 생성 중
+**16/24 완료**
+
+## 배치 4 — 생성 중
 
 | # | 핵심 단어 | taskId |
 |---|---|---|
-| 11 | 분배율과 수익률 | `cmu8ndesi4x24c70ynywhttsh` |
-| 12 | 총수익률 | `cmu8ndixk4wmjg8eqdilaiet1` |
-| 13 | 가격 변화까지 | `cmu8ndnni4wxr7yygj7jonw2e` |
-| 14 | 얼마나 파느냐 | `cmu8ndswg4x1aw8iq2zbowbim` |
+| 15 | 전략이 다르다 | `cmu8nipb24wrxl0u9ffp7p3ya` |
+| 16 | 무엇을 포기하나 | `cmu8niuqc4wl213itdftioino` |
+| 17 | 기초자산 | `cmu8nize04wsp4okymkoeao7v` |
+| 19 | 보는 순서 | `cmu8nj3rt4x20g8eq93bfpre4` |
 
 ## 남은 배치
 
 | 배치 | 컷 |
 |---|---|
-| 4 | 15 전략이 다르다 · 16 무엇을 포기하나 · 17 기초자산 · 19 보는 순서 |
 | 5 | 20 고정 이자가 아니다 · 21 원금 감소 가능 · 22 목적이 다르다 · 23 세 가지 숫자 |
 | 6 | 24 내 목적에 맞는 ETF |
 
