@@ -9,22 +9,27 @@
 | 1 | 매달 들어오는 돈 | https://pollo.ai/v/cmu8mf7ya4u1glvhpgn9yldns |
 | 10 | 상승 제한 | https://pollo.ai/v/cmu8mfc394uo9czgib9gecvgo |
 | 18 | 커버드콜 | https://pollo.ai/v/cmu8mf1204tqz12w9n5qumbfl |
+| 2 | 은행 vs ETF | https://pollo.ai/v/cmu8n30cg4wwxsigc44ep7blb |
+| 3 | 월배당 ETF | https://pollo.ai/v/cmu8n34ym4wv0gpnd7dyioe0o |
+| 4 | 분배율이 크다 | https://pollo.ai/v/cmu8n39wk4v9xftrgkcsmbrfx |
+| 5 | 이 돈의 출처 | https://pollo.ai/v/cmu8n3el44wvkgpndcu56rz58 |
 | 18-en | COVERED CALL (영문 대조군) | https://pollo.ai/v/cmu8mf4b84trhnsq689m3whs2 |
 
-## 배치 1 — 생성 중
+**8/24 완료**
+
+## 배치 2 — 생성 중
 
 | # | 핵심 단어 | taskId |
 |---|---|---|
-| 2 | 은행 vs ETF | `cmu8n30c94wwwsigcj7x3e8nk` |
-| 3 | 월배당 ETF | `cmu8n34yh4wuzgpndak8284wc` |
-| 4 | 분배율이 크다 | `cmu8n39we4v9wftrg46hctb8g` |
-| 5 | 이 돈의 출처 | `cmu8n3ekz4wvjgpndk5cvyphs` |
+| 6 | 콜옵션 매도 | `cmu8n7yd14xb0vvcz5jpuru6v` |
+| 7 | 옵션 프리미엄 | `cmu8n83gh4vx5zd4l1trdte6o` |
+| 8 | 공짜 점심은 없다 | `cmu8n88aa4x9jgsppu47xlab5` |
+| 9 | 횡보장 | `cmu8n8cte4w7412w9dycin8xr` |
 
 ## 남은 배치
 
 | 배치 | 컷 |
 |---|---|
-| 2 | 6 콜옵션 매도 · 7 옵션 프리미엄 · 8 공짜 점심은 없다 · 9 횡보장 |
 | 3 | 11 분배율과 수익률 · 12 총수익률 · 13 가격 변화까지 · 14 얼마나 파느냐 |
 | 4 | 15 전략이 다르다 · 16 무엇을 포기하나 · 17 기초자산 · 19 보는 순서 |
 | 5 | 20 고정 이자가 아니다 · 21 원금 감소 가능 · 22 목적이 다르다 · 23 세 가지 숫자 |
