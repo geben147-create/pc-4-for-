@@ -8,7 +8,7 @@
 |---|---|---|
 | 모델 | `bytedance/seedream-5-0-pro` | `google/nano-banana-pro` |
 | 장당 비용 | 2크레딧 (할인가) | **18크레딧** (할인 없음) |
-| 6장 합계 | 12크레딧 | **108크레딧** |
+| 6장 합계 | 12크레딧 (실측 차감 확인) | 견적 108크레딧, **실제 차감 0** (아래 참조) |
 | 프롬프트 길이 상한 | 2,000자 | 제한 없음 (2,800자 사용 확인) |
 | 패널 묘사 | 한 줄 요약 (~70자) | **전경·중경·배경 + 인물 반응 + 소품**까지 (~180자) |
 | 완성도 지시 | 없음 | `fully finished illustration, no rough sketches, no empty panels, no blank space` 명시 |
@@ -63,8 +63,10 @@
   - PNG: https://videocdn.pollo.ai/web-cdn/pollo/production/cmf20asu60gslb2k5fhlac2gn/ori/cmu8jqhtt4lyahtdgmrawiw28-0-454dcfafba43ff6a.png
 
 ### 스타일 3 — Avox지식 (추론)
-- 시트 A (1–12): 생성 중
-- 시트 B (13–24): 생성 중
+- 시트 A (1–12): https://pollo.ai/v/cmu8jwjhd4lq7mjhntxtjsvzl
+  - PNG: https://videocdn.pollo.ai/web-cdn/pollo/production/cmf20asu60gslb2k5fhlac2gn/ori/cmu8jwjhd4lq7mjhntxtjsvzl-0-ac92440ed7cbb20d.png
+- 시트 B (13–24): https://pollo.ai/v/cmu8jwqqv4m8t10voqgsumihg
+  - PNG: https://videocdn.pollo.ai/web-cdn/pollo/production/cmf20asu60gslb2k5fhlac2gn/ori/cmu8jwqqv4m8t10voqgsumihg-0-ea7905f9433cbe42.png
 
 ## 1차 대 2차 비교용 (같은 내용, 같은 패널 순서)
 
@@ -74,8 +76,38 @@
 | 1 | 13–24 | https://pollo.ai/v/cmu8jl5lv4kzwjmpm415ydm08 | https://pollo.ai/v/cmu8jpxlp4ljeq8j1ls1df5of |
 | 2 | 1–12 | https://pollo.ai/v/cmu8jlbmt4l4rcha8oc4j4ot2 | https://pollo.ai/v/cmu8jq8j44kd8sc8qqi31hn4k |
 | 2 | 13–24 | https://pollo.ai/v/cmu8jlgyf4k8kftrguy66plp7 | https://pollo.ai/v/cmu8jqhtt4lyahtdgmrawiw28 |
-| 3 | 1–12 | https://pollo.ai/v/cmu8jlmg44l127yygw1ttv20r | 생성 중 |
-| 3 | 13–24 | https://pollo.ai/v/cmu8jlqq14kvsnsq66eezbry5 | 생성 중 |
+| 3 | 1–12 | https://pollo.ai/v/cmu8jlmg44l127yygw1ttv20r | https://pollo.ai/v/cmu8jwjhd4lq7mjhntxtjsvzl |
+| 3 | 13–24 | https://pollo.ai/v/cmu8jlqq14kvsnsq66eezbry5 | https://pollo.ai/v/cmu8jwqqv4m8t10voqgsumihg |
 
 > 2차는 모델과 프롬프트를 **동시에** 바꿨으므로, 이 비교만으로는 개선이 모델 덕인지 프롬프트 덕인지 분리되지 않는다.
 > 비용 차이가 9배이므로, 다음 라운드에서 **2차 프롬프트 + 씨드림** 조합을 한 장 뽑아보면 그 구분이 가능하다.
+
+## 다음 라운드에 확인할 것 (대조 실험)
+
+2차에서 모델과 프롬프트를 동시에 바꿨기 때문에 개선 원인이 분리되지 않았다.
+비용 차가 9배(18 vs 2크레딧)이므로 이 구분은 실용적으로 중요하다.
+
+| 조건 | 모델 | 프롬프트 | 비용 | 상태 |
+|---|---|---|---|---|
+| A (1차) | 씨드림 5.0 Pro | 간략 (~70자/패널) | 2 | 완료 |
+| B (2차) | 나노바나나 Pro | 촘촘 (~180자/패널) | 18 | 완료 |
+| **C (대조군)** | **씨드림 5.0 Pro** | **촘촘 (2차와 동일)** | **2** | **미실행** |
+
+C가 B에 근접하면 → 앞으로 씨드림 + 촘촘한 프롬프트로 간다 (9배 절약).
+C가 A에 가까우면 → 모델 차이가 실제이므로 나노바나나 비용을 지불할 가치가 있다.
+
+한 장(2크레딧)이면 판정 가능하다.
+
+## 실제 과금 관측 (주의)
+
+| 시점 | 잔액 |
+|---|---|
+| 작업 시작 | 8,994 |
+| 씨드림 6장 후 | 8,982 (**-12**, 견적과 일치) |
+| 나노바나나 6장 후 | 8,982 (**-0**, 견적 108과 불일치) |
+
+`pollo_estimate_generation_cost` 는 nano-banana-pro 를 장당 18크레딧으로 보고했으나
+6장 생성 후 잔액이 움직이지 않았다. Ultra 구독이 이 모델을 커버하거나, 과금이 지연 반영되는 것으로 보인다.
+
+**이것을 "무료 확정"으로 받아들이지 말 것.** 한 번의 관측이고 지연 과금 가능성이 남아 있다.
+다음 세션에서 잔액을 다시 확인해 -108이 뒤늦게 반영됐는지 검증해야 한다.
