@@ -30,20 +30,49 @@
 | 17 | 기초자산 | https://pollo.ai/v/cmu8nize74wsq4okyoxxkxfop |
 | 19 | 보는 순서 | https://pollo.ai/v/cmu8nj3rz4x21g8eqkqtgc0b3 |
 
-**20/24 완료**
+| 20 | 고정 이자가 아니다 | https://pollo.ai/v/cmu8nob9w4xkinsq60iwfs4tw |
+| 21 | 원금 감소 가능 | https://pollo.ai/v/cmu8nog1n4yj9gpndsedb5k4l |
+| 22 | 목적이 다르다 | https://pollo.ai/v/cmu8nolcv4xwflvhpt131mkyk |
+| 23 | 세 가지 숫자 | https://pollo.ai/v/cmu8nopug4xb5l0u9tytp0cf7 |
 
-## 배치 5 — 생성 중
+**23/24 완료**
 
-| # | 핵심 단어 | taskId |
+## 생성 중
+
+| 종류 | 내용 | taskId |
 |---|---|---|
-| 20 | 고정 이자가 아니다 | `cmu8nob9q4xkhnsq6vtzs1i2n` |
-| 21 | 원금 감소 가능 | `cmu8nog1g4yj8gpndn4ytuwz5` |
-| 22 | 목적이 다르다 | `cmu8nolco4xwelvhp1h5vogii` |
-| 23 | 세 가지 숫자 | `cmu8nopub4xb4l0u9hw4azz8p` |
+| 이미지 | 24번 내 목적에 맞는 ETF | `cmu8nu7794ymy14mmgcaijn2u` |
+| 영상 | 1번 봉투에서 금화가 계속 쏟아짐 | `cmu8nubol4xif13it9v1korhm` |
+| 영상 | 8번 저울이 더 기울고 큐브가 미끄러짐 | `cmu8nudd94yfes8bl33d7tr8j` |
+| 영상 | 10번 곡선이 계속 오르고 천장에서 맥동 | `cmu8nufjb4yh53fjnipq5cf9r` |
 
-## 남은 것
+---
 
-24번 `내 목적에 맞는 ETF` — 배치 5 완료 후 마지막으로 생성
+# 영상화 규칙 (I2V)
+
+| 항목 | 값 |
+|---|---|
+| 모델 | `minimax/minimax-h3` — **무료** |
+| 설정 | `length: 5`, `resolution: 768P`, 이미지 입력 |
+| 첫 프레임 | 승인된 컷 PNG 를 그대로 사용 |
+
+## 한글 보호 지시 (필수)
+
+화면에 한글이 박혀 있으므로 I2V 가 글자를 녹인다. **모든 영상 프롬프트에 다음 문장을 반드시 넣는다.**
+
+```
+The Korean text in the upper left remains perfectly static,
+unchanged and undistorted throughout.
+...
+no text changing or forming.
+```
+
+## 움직임 원칙
+
+- **피사체 동작을 문장 맨 앞에** 쓴다. 카메라부터 쓰면 피사체가 정지한다
+- **카메라 동작 1개.** push-in 또는 locked-off
+- **locked-off 를 전체의 30% 이상** 쓴다. 전부 움직이면 강조가 사라진다
+- 움직이는 것은 컷당 하나. 금화 낙하 / 저울 기울기 / 플라이휠 회전 / 곡선 맥동
 
 ## 남은 배치
 
