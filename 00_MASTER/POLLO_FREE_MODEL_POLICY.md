@@ -40,38 +40,54 @@
 
 ---
 
-## 영상 — 무료 없음 (15개 모델 전수 확인)
+## 영상 — 무료 있음 (조건부)
+
+### ✅ 무료 설정 — 이것만 쓴다
+
+```
+brand:      minimax
+model:      minimax-h3
+length:     5          <- 5초 고정. 10초는 유료
+resolution: 768P       <- 768P 고정. 480p/2K 는 미검증
+```
+
+`discountCost: 0`. **이미지 입력(I2V)을 붙여도 0** 이므로 승인된 스틸을 첫 프레임으로 쓸 수 있다.
+
+### 무료 경계 실측
+
+| 설정 | discountCost | 판정 |
+|---|---|---|
+| `minimax-h3` 5초 768P | **0** | ✅ 무료 |
+| `minimax-h3` 5초 768P + image (I2V) | **0** | ✅ 무료 |
+| `minimax-h3` 10초 768P | 50 | ❌ 유료 |
+| `minimax-h3` 1080P | — | 지원 안 함 (480p / 768p / 2K 만) |
+
+**5초 + 768P 조합에서만 무료다.** 길이나 해상도를 바꾸면 과금된다.
+
+### 유료 영상 모델 (참고용, 사용 금지)
 
 | 모델 | discountCost |
 |---|---|
 | `bytedance/seedance-pro-fast` | 4 |
 | `pollo-ai/pollo-v1-6` | 5 |
 | `google/veo3-1-lite` | 8 |
-| `bytedance/seedance-2-0-mini` | 10 |
-| `pixverse/pixverse-v3-5` | 10 |
-| `pixverse/pixverse-v4` | 10 |
-| `vidu/viduq3-turbo` | 10 |
-| `pollo-ai/pollo-v1-5` | 10 |
+| `bytedance/seedance-2-0-mini` / `pixverse-v3-5` / `pixverse-v4` / `vidu/viduq3-turbo` / `pollo-v1-5` | 10 |
 | `bytedance/seedance-2-0-fast` | 12 |
-| `alibaba/wan-v2-1` | 20 |
-| `luma/luma-ray-2-flash` | 20 |
+| `alibaba/wan-v2-1` / `luma/luma-ray-2-flash` | 20 |
 | `kling-ai/kling-v2-5-turbo` | 30 |
 | `minimax/video-01` | 35 |
 | `xai/grok-imagine-video` | 40 |
 | `google/gemini-omni-flash` | 50 |
 
-**`discountCost == 0` 인 영상 모델은 하나도 없다.**
+### ⚠️ 이 문서가 한 번 틀렸던 이유
 
-따라서 **절대 무료 규칙 하에서 영상 생성은 불가능하다.** 최저가도 4크레딧이다.
+초기 조사에서 "무료 영상 모델 없음" 이라고 결론냈다. **틀렸다.**
+원인: `minimax/video-01` (35크레딧) 만 확인하고 같은 브랜드의 `minimax-h3` 를 놓쳤고,
+길이·해상도 파라미터를 바꿔가며 확인하지 않았다.
 
-### 영상이 필요해지면 선택지
-
-1. **규칙 유지 → 영상 생성 안 함.** 이미지만 만들고 움직임은 편집 단계에서 처리
-   (Ken Burns 팬/줌, 레이어 패럴랙스, After Effects). 플랫 벡터 스타일은 이 방식이 오히려 자연스럽다.
-2. **사용자가 규칙을 명시적으로 푸는 경우에만** `seedance-pro-fast` (4크레딧) 부터 검토.
-   현재 잔액 8,982 기준 약 2,245클립 분량이지만, **사용자 승인 없이는 쓰지 않는다.**
-
----
+**교훈: 모델 하나가 유료라고 그 브랜드 전체를 유료로 판정하지 말 것.**
+같은 브랜드 안에서도 모델별로 다르고, **같은 모델도 길이·해상도 조합에 따라 무료/유료가 갈린다.**
+무료 여부를 단정하기 전에 브랜드의 모든 모델 x 허용된 파라미터 조합을 확인한다.
 
 ## 생성 전 체크리스트
 
