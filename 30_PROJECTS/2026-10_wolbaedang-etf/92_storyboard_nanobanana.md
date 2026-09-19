@@ -37,11 +37,45 @@
 | S1-B | 일본 플랫 카툰 | 13–24 | `cmu8jpxli4ljdq8j1mlz5aszi` |
 | S2-A | 건축사전 | 1–12 | `cmu8jq8iy4kd7sc8qgpz4wssi` |
 | S2-B | 건축사전 | 13–24 | `cmu8jqhtp4ly9htdgk5r47zwx` |
-| S3-A | Avox지식 | 1–12 | (병렬 제한으로 대기 후 제출) |
-| S3-B | Avox지식 | 13–24 | (병렬 제한으로 대기 후 제출) |
+| S3-A | Avox지식 | 1–12 | `cmu8jwjh74lq6mjhnazth8sye` |
+| S3-B | Avox지식 | 13–24 | `cmu8jwqqp4m8s10von0j07cec` |
 
 ## 미해결
 
 - **스타일 2·3은 여전히 이름 추론.** `A건축사전style` / `Avox지식style` 폴더가 로컬 Windows 경로라 이 세션에서 열 수 없다.
   해당 폴더 이미지를 채팅에 직접 올리면 레퍼런스 기반으로 다시 뽑는다. 지금 결과는 "이름으로 상상한 버전"이다.
 - **이미지 육안 검수 불가.** `videocdn.pollo.ai` egress 차단(403)으로 컨테이너에 내려받지 못한다. 링크를 열어 확인해야 한다.
+
+---
+
+## 생성 결과 (2차, Nano Banana Pro)
+
+### 스타일 1 — 일본 심플 플랫 카툰
+- 시트 A (1–12): https://pollo.ai/v/cmu8jphvo4ltvrtf31at4p2cb
+  - PNG: https://videocdn.pollo.ai/web-cdn/pollo/production/cmf20asu60gslb2k5fhlac2gn/ori/cmu8jphvo4ltvrtf31at4p2cb-0-3f7011e6dbb24fc0.png
+- 시트 B (13–24): https://pollo.ai/v/cmu8jpxlp4ljeq8j1ls1df5of
+  - PNG: https://videocdn.pollo.ai/web-cdn/pollo/production/cmf20asu60gslb2k5fhlac2gn/ori/cmu8jpxlp4ljeq8j1ls1df5of-0-20c3e81f957a0160.png
+
+### 스타일 2 — 건축사전 (추론)
+- 시트 A (1–12): https://pollo.ai/v/cmu8jq8j44kd8sc8qqi31hn4k
+  - PNG: https://videocdn.pollo.ai/web-cdn/pollo/production/cmf20asu60gslb2k5fhlac2gn/ori/cmu8jq8j44kd8sc8qqi31hn4k-0-2f10e4b32a179fd4.png
+- 시트 B (13–24): https://pollo.ai/v/cmu8jqhtt4lyahtdgmrawiw28
+  - PNG: https://videocdn.pollo.ai/web-cdn/pollo/production/cmf20asu60gslb2k5fhlac2gn/ori/cmu8jqhtt4lyahtdgmrawiw28-0-454dcfafba43ff6a.png
+
+### 스타일 3 — Avox지식 (추론)
+- 시트 A (1–12): 생성 중
+- 시트 B (13–24): 생성 중
+
+## 1차 대 2차 비교용 (같은 내용, 같은 패널 순서)
+
+| 스타일 | 패널 | 1차 씨드림 (2크레딧) | 2차 나노바나나 (18크레딧) |
+|---|---|---|---|
+| 1 | 1–12 | https://pollo.ai/v/cmu8jkmu54kznzlasqrq81yf5 | https://pollo.ai/v/cmu8jphvo4ltvrtf31at4p2cb |
+| 1 | 13–24 | https://pollo.ai/v/cmu8jl5lv4kzwjmpm415ydm08 | https://pollo.ai/v/cmu8jpxlp4ljeq8j1ls1df5of |
+| 2 | 1–12 | https://pollo.ai/v/cmu8jlbmt4l4rcha8oc4j4ot2 | https://pollo.ai/v/cmu8jq8j44kd8sc8qqi31hn4k |
+| 2 | 13–24 | https://pollo.ai/v/cmu8jlgyf4k8kftrguy66plp7 | https://pollo.ai/v/cmu8jqhtt4lyahtdgmrawiw28 |
+| 3 | 1–12 | https://pollo.ai/v/cmu8jlmg44l127yygw1ttv20r | 생성 중 |
+| 3 | 13–24 | https://pollo.ai/v/cmu8jlqq14kvsnsq66eezbry5 | 생성 중 |
+
+> 2차는 모델과 프롬프트를 **동시에** 바꿨으므로, 이 비교만으로는 개선이 모델 덕인지 프롬프트 덕인지 분리되지 않는다.
+> 비용 차이가 9배이므로, 다음 라운드에서 **2차 프롬프트 + 씨드림** 조합을 한 장 뽑아보면 그 구분이 가능하다.
