@@ -25,23 +25,27 @@
 | 13 | 가격 변화까지 | https://pollo.ai/v/cmu8ndnno4wxt7yygpalkp4x2 |
 | 14 | 얼마나 파느냐 | https://pollo.ai/v/cmu8ndswp4x1bw8iq1pfam7cu |
 
-**16/24 완료**
+| 15 | 전략이 다르다 | https://pollo.ai/v/cmu8nipb84wryl0u9lf1i7gdw |
+| 16 | 무엇을 포기하나 | https://pollo.ai/v/cmu8niuqj4wl313ite1m60vje |
+| 17 | 기초자산 | https://pollo.ai/v/cmu8nize74wsq4okyoxxkxfop |
+| 19 | 보는 순서 | https://pollo.ai/v/cmu8nj3rz4x21g8eqkqtgc0b3 |
 
-## 배치 4 — 생성 중
+**20/24 완료**
+
+## 배치 5 — 생성 중
 
 | # | 핵심 단어 | taskId |
 |---|---|---|
-| 15 | 전략이 다르다 | `cmu8nipb24wrxl0u9ffp7p3ya` |
-| 16 | 무엇을 포기하나 | `cmu8niuqc4wl213itdftioino` |
-| 17 | 기초자산 | `cmu8nize04wsp4okymkoeao7v` |
-| 19 | 보는 순서 | `cmu8nj3rt4x20g8eq93bfpre4` |
+| 20 | 고정 이자가 아니다 | `cmu8nob9q4xkhnsq6vtzs1i2n` |
+| 21 | 원금 감소 가능 | `cmu8nog1g4yj8gpndn4ytuwz5` |
+| 22 | 목적이 다르다 | `cmu8nolco4xwelvhp1h5vogii` |
+| 23 | 세 가지 숫자 | `cmu8nopub4xb4l0u9hw4azz8p` |
+
+## 남은 것
+
+24번 `내 목적에 맞는 ETF` — 배치 5 완료 후 마지막으로 생성
 
 ## 남은 배치
-
-| 배치 | 컷 |
-|---|---|
-| 5 | 20 고정 이자가 아니다 · 21 원금 감소 가능 · 22 목적이 다르다 · 23 세 가지 숫자 |
-| 6 | 24 내 목적에 맞는 ETF |
 
 이미지 24컷 완료 후 각 컷을 `minimax-h3` 5초 768P I2V(무료)로 영상화한다.
 
